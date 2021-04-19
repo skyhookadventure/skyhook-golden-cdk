@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates resources matching the snapshot 1`] = `
+Object {
+  "Resources": Object {
+    "testFunctionDataSource4C03DC5E": Object {
+      "Properties": Object {
+        "ApiId": "testID",
+        "Description": "Data source for field booking on type Query.",
+        "LambdaConfig": Object {
+          "LambdaFunctionArn": Object {
+            "Fn::GetAtt": Array [
+              "testFunctionLambda78269C17",
+              "Arn",
+            ],
+          },
+        },
+        "Name": "testFunctionDataSource",
+        "ServiceRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "testFunctionDataSourceServiceRole2206622A",
+            "Arn",
+          ],
+        },
+        "Type": "AWS_LAMBDA",
+      },
+      "Type": "AWS::AppSync::DataSource",
+    },
+    "testFunctionDataSourceServiceRole2206622A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "appsync.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "testFunctionDataSourceServiceRoleDefaultPolicy585B338D": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "testFunctionLambda78269C17",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "testFunctionDataSourceServiceRoleDefaultPolicy585B338D",
+        "Roles": Array [
+          Object {
+            "Ref": "testFunctionDataSourceServiceRole2206622A",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "testFunctionLambda78269C17": Object {
+      "DependsOn": Array [
+        "testFunctionLambdaServiceRoleF9778236",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": "cdk-lambda-nodejs-mock-fake-bucket",
+          "S3Key": "cdk-lambda-nodejs-mock-fake-lambda.ts",
+        },
+        "Description": "Appsync Resolver for field booking on type Query.",
+        "MemorySize": 1024,
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "testFunctionLambdaServiceRoleF9778236",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "testFunctionLambdaServiceRoleF9778236": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "testFunctionResolver84C7D9B2": Object {
+      "DependsOn": Array [
+        "testFunctionDataSource4C03DC5E",
+      ],
+      "Properties": Object {
+        "ApiId": "testID",
+        "DataSourceName": "testFunctionDataSource",
+        "FieldName": "booking",
+        "Kind": "UNIT",
+        "TypeName": "Query",
+      },
+      "Type": "AWS::AppSync::Resolver",
+    },
+  },
+}
+`;
