@@ -3,7 +3,7 @@
 [![Built with
 typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://www.typescriptlang.org/)
 
-Contains L3 CDK constructs that define company defaults & simplify common practices.
+L3 CDK constructs that simplify common patterns.
 
 ## L3 CDK Constructs Provided
 
