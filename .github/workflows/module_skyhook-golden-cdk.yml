@@ -3,13 +3,9 @@ name: skyhook-golden-cdk
 on:
   push:
     branches: [main]
-    paths:
-      - 'modules/skyhook-golden-cdk/**'
   pull_request:
     branches:
       - main
-    paths:
-      - 'modules/skyhook-golden-cdk/**'
 
 jobs:
   test:
