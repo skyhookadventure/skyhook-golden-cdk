@@ -20,4 +20,4 @@ all cdk modules so that whichever version you have on your service should work.
 
 ## Built by Skyhook
 
-This module is contributed by the team at [Skyhook](https://www.skyhookadventure.com/).
+This module is contributed by the team at [Skyhook](https://www.skyhookadventure.com/)

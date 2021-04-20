@@ -1,12 +1,12 @@
-import { NodejsFunctionProps } from '@aws-cdk/aws-lambda-nodejs';
-import { Stack } from '@aws-cdk/core';
+import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
+import { Stack } from "@aws-cdk/core";
 import {
   IGraphqlApi,
   LambdaDataSource,
   Resolver,
   ResolverProps,
-} from '@aws-cdk/aws-appsync';
-import SkyhookNodejsFunction from './SkyhookNodejsFunction';
+} from "@aws-cdk/aws-appsync";
+import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
 
 /**
  * Appsync Nodejs Resolver
@@ -58,8 +58,8 @@ interface LambdaMutationResolverProps {
    * });
    */
   api: IGraphqlApi;
-  entry: NodejsFunctionProps['entry'];
-  fieldName: ResolverProps['fieldName'];
-  handler?: NodejsFunctionProps['handler'];
-  typeName: ResolverProps['typeName'];
+  entry: NodejsFunctionProps["entry"];
+  fieldName: ResolverProps["fieldName"];
+  handler?: NodejsFunctionProps["handler"];
+  typeName: ResolverProps["typeName"];
 }

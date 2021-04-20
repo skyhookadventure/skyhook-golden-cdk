@@ -1,10 +1,10 @@
-import { Alarm } from '@aws-cdk/aws-cloudwatch';
-import { NodejsFunctionProps } from '@aws-cdk/aws-lambda-nodejs';
-import { Rule, RuleProps } from '@aws-cdk/aws-events';
-import { Stack, Duration } from '@aws-cdk/core';
-import { LambdaFunction } from '@aws-cdk/aws-events-targets';
-import { Queue } from '@aws-cdk/aws-sqs';
-import SkyhookNodejsFunction from './SkyhookNodejsFunction';
+import { Alarm } from "@aws-cdk/aws-cloudwatch";
+import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
+import { Rule, RuleProps } from "@aws-cdk/aws-events";
+import { Stack, Duration } from "@aws-cdk/core";
+import { LambdaFunction } from "@aws-cdk/aws-events-targets";
+import { Queue } from "@aws-cdk/aws-sqs";
+import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
 
 /**
  * EventBridge Nodejs Listener
@@ -56,8 +56,8 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
 interface LambdaMutationResolverProps {
   /** Description for both the lambda and the EventBridge rule */
   description?: string;
-  entry: NodejsFunctionProps['entry'];
-  eventBus?: RuleProps['eventBus'];
-  eventPattern: RuleProps['eventPattern'];
-  handler?: NodejsFunctionProps['handler'];
+  entry: NodejsFunctionProps["entry"];
+  eventBus?: RuleProps["eventBus"];
+  eventPattern: RuleProps["eventPattern"];
+  handler?: NodejsFunctionProps["handler"];
 }
