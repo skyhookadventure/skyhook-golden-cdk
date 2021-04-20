@@ -1,5 +1,5 @@
 import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
-import { Stack } from "@aws-cdk/core";
+import { Construct } from "@aws-cdk/core";
 import {
   IGraphqlApi,
   LambdaDataSource,
@@ -19,7 +19,7 @@ import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
  */
 export default class AppsyncNodejsResolver extends SkyhookNodejsFunction {
   constructor(
-    scope: Stack,
+    scope: Construct,
     id: string,
     { api, typeName, fieldName, entry, handler }: LambdaMutationResolverProps
   ) {

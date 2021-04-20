@@ -1,7 +1,7 @@
 import { Alarm } from "@aws-cdk/aws-cloudwatch";
 import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
 import { Rule, RuleProps } from "@aws-cdk/aws-events";
-import { Stack, Duration } from "@aws-cdk/core";
+import { Duration, Construct } from "@aws-cdk/core";
 import { LambdaFunction } from "@aws-cdk/aws-events-targets";
 import { Queue } from "@aws-cdk/aws-sqs";
 import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
@@ -15,7 +15,7 @@ import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
  */
 export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
   constructor(
-    scope: Stack,
+    scope: Construct,
     id: string,
     {
       description,

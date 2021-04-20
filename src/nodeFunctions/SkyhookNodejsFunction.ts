@@ -3,7 +3,7 @@ import {
   NodejsFunctionProps,
 } from "@aws-cdk/aws-lambda-nodejs";
 import { Runtime } from "@aws-cdk/aws-lambda";
-import { Stack } from "@aws-cdk/core";
+import { Construct } from "@aws-cdk/core";
 
 /**
  * Skyhook Nodejs Function
@@ -16,7 +16,7 @@ import { Stack } from "@aws-cdk/core";
  * using esbuild, which is much faster than webpack.
  */
 export default class SkyhookNodejsFunction extends NodejsFunction {
-  constructor(scope: Stack, id: string, props: NodejsFunctionProps) {
+  constructor(scope: Construct, id: string, props: NodejsFunctionProps) {
     super(scope, id, {
       // Skyhook defaults
       bundling: { minify: true },
