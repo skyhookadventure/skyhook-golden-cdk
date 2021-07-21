@@ -17,13 +17,15 @@ import { Construct } from "@aws-cdk/core";
  */
 export default class SkyhookNodejsFunction extends NodejsFunction {
   constructor(scope: Construct, id: string, props: NodejsFunctionProps) {
+    // removing out bundling from other props to allow minify to be true unless explicitly set to false
+    const { bundling, ...propsWithoutBundling } = props;
     super(scope, id, {
       // Skyhook defaults
-      bundling: { minify: true },
+      bundling: { minify: true, ...bundling },
       memorySize: 1024, // We have found this to typically represent a good balance of performance vs price.
       runtime: Runtime.NODEJS_14_X, // Currently CDK defaults to 12
       // Given props
-      ...props,
+      ...propsWithoutBundling,
     });
   }
 }

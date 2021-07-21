@@ -1,7 +1,7 @@
 import { Alarm } from "@aws-cdk/aws-cloudwatch";
 import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
 import { Rule, RuleProps } from "@aws-cdk/aws-events";
-import { Duration, Construct } from "@aws-cdk/core";
+import { Duration, Construct, BundlingOptions } from "@aws-cdk/core";
 import { LambdaFunction } from "@aws-cdk/aws-events-targets";
 import { Queue } from "@aws-cdk/aws-sqs";
 import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
@@ -23,12 +23,14 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
       eventBus,
       eventPattern,
       handler,
+      bundling,
     }: LambdaMutationResolverProps
   ) {
     super(scope, `${id}Lambda`, {
       entry,
       description,
       handler,
+      bundling,
     });
 
     const deadLetterQueue = new Queue(scope, `${id}DeadLetterQueue`, {
@@ -60,4 +62,5 @@ interface LambdaMutationResolverProps {
   eventBus?: RuleProps["eventBus"];
   eventPattern: RuleProps["eventPattern"];
   handler?: NodejsFunctionProps["handler"];
+  bundling?: BundlingOptions;
 }
