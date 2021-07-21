@@ -27,6 +27,7 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
       eventPattern,
       handler,
       bundling,
+      timeout,
     }: EventBridgeNodejsListenerProps
   ) {
     super(scope, `${id}Lambda`, {
@@ -34,6 +35,7 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
       description,
       handler,
       bundling,
+      timeout,
     });
 
     const deadLetterQueue = new Queue(scope, `${id}DeadLetterQueue`, {
@@ -66,4 +68,5 @@ interface EventBridgeNodejsListenerProps {
   eventPattern: RuleProps["eventPattern"];
   handler?: NodejsFunctionProps["handler"];
   bundling?: BundlingOptions;
+  timeout?: NodejsFunctionProps["timeout"];
 }
