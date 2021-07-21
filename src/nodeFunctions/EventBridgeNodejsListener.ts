@@ -24,7 +24,7 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
       eventPattern,
       handler,
       bundling,
-    }: LambdaMutationResolverProps
+    }: EventBridgeNodejsListenerProps
   ) {
     super(scope, `${id}Lambda`, {
       entry,
@@ -55,7 +55,7 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
   }
 }
 
-interface LambdaMutationResolverProps {
+interface EventBridgeNodejsListenerProps {
   /** Description for both the lambda and the EventBridge rule */
   description?: string;
   entry: NodejsFunctionProps["entry"];
