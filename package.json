@@ -1,7 +1,7 @@
 {
   "name": "@skyhookadventure/golden-cdk",
   "license": "MIT",
-  "version": "1.32.7",
+  "version": "1.32.8",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --resolveJsonModule",
