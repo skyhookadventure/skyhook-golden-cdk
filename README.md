@@ -5,6 +5,12 @@ typescript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](htt
 
 L3 CDK constructs that simplify common patterns.
 
+## Install
+
+```bash
+yarn add @skyhookadventure/golden-cdk --dev
+```
+
 ## L3 CDK Constructs Provided
 
 | Construct                 | Description                                                                                                                                                                                                           |
