@@ -21,12 +21,20 @@ export default class AppsyncNodejsResolver extends SkyhookNodejsFunction {
   constructor(
     scope: Construct,
     id: string,
-    { api, typeName, fieldName, entry, handler }: LambdaMutationResolverProps
+    {
+      api,
+      typeName,
+      fieldName,
+      entry,
+      handler,
+      timeout,
+    }: LambdaMutationResolverProps
   ) {
     super(scope, `${id}Lambda`, {
       description: `Appsync Resolver for field ${fieldName} on type ${typeName}.`,
       entry,
       handler,
+      timeout,
     });
 
     const dataSource = new LambdaDataSource(scope, `${id}DataSource`, {
@@ -62,4 +70,5 @@ interface LambdaMutationResolverProps {
   fieldName: ResolverProps["fieldName"];
   handler?: NodejsFunctionProps["handler"];
   typeName: ResolverProps["typeName"];
+  timeout?: NodejsFunctionProps["timeout"];
 }
