@@ -42,7 +42,9 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
       retentionPeriod: Duration.days(14),
     });
 
-    const ruleTarget = new LambdaFunction(this, { deadLetterQueue });
+    const ruleTarget = new LambdaFunction(this, {
+      deadLetterQueue,
+    });
 
     new Rule(scope, `${id}Rule`, {
       targets: [ruleTarget],

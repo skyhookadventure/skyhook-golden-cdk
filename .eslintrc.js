@@ -11,6 +11,7 @@ module.exports = {
   },
   extends: [
     // Airbnb Typescript eslint from https://www.npmjs.com/package/eslint-config-airbnb-typescript
+    "airbnb-base",
     "airbnb-typescript/base",
     // Standard eslint & typescript-eslint recommended
     "eslint:recommended",
