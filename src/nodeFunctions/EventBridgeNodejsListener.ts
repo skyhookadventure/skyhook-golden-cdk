@@ -4,7 +4,7 @@ import {
   BundlingOptions,
 } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Rule, RuleProps } from "aws-cdk-lib/aws-events";
-import { Duration } from "aws-cdk-lib/core";
+import { Duration } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
 import { Queue } from "aws-cdk-lib/aws-sqs";
