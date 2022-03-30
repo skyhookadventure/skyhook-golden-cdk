@@ -1,5 +1,5 @@
 import "@aws-cdk/assert/jest";
-import { Stack } from "@aws-cdk/core";
+import { Stack } from "aws-cdk-lib/core";
 import { SynthUtils } from "@aws-cdk/assert";
 import EventBridgeNodejsListener from "../EventBridgeNodejsListener";
 

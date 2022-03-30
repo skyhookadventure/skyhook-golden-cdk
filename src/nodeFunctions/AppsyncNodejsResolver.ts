@@ -1,11 +1,11 @@
-import { NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
-import { Construct } from "@aws-cdk/core";
+import { NodejsFunctionProps } from "aws-cdk-lib/aws-lambda-nodejs";
+import { Construct } from "constructs";
 import {
   IGraphqlApi,
   LambdaDataSource,
   Resolver,
   ResolverProps,
-} from "@aws-cdk/aws-appsync";
+} from "@aws-cdk/aws-appsync-alpha";
 import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
 
 /**

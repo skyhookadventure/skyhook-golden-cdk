@@ -1,12 +1,13 @@
-import { Alarm } from "@aws-cdk/aws-cloudwatch";
+import { Alarm } from "aws-cdk-lib/aws-cloudwatch";
 import {
   NodejsFunctionProps,
   BundlingOptions,
-} from "@aws-cdk/aws-lambda-nodejs";
-import { Rule, RuleProps } from "@aws-cdk/aws-events";
-import { Duration, Construct } from "@aws-cdk/core";
-import { LambdaFunction } from "@aws-cdk/aws-events-targets";
-import { Queue } from "@aws-cdk/aws-sqs";
+} from "aws-cdk-lib/aws-lambda-nodejs";
+import { Rule, RuleProps } from "aws-cdk-lib/aws-events";
+import { Duration } from "aws-cdk-lib/core";
+import { Construct } from "constructs";
+import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
+import { Queue } from "aws-cdk-lib/aws-sqs";
 import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
 
 /**

@@ -50,12 +50,28 @@ Object {
             Object {
               "Action": "lambda:InvokeFunction",
               "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "testFunctionLambda78269C17",
-                  "Arn",
-                ],
-              },
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "testFunctionLambda78269C17",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "testFunctionLambda78269C17",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
             },
           ],
           "Version": "2012-10-17",

@@ -1,9 +1,9 @@
 import {
   NodejsFunction,
   NodejsFunctionProps,
-} from "@aws-cdk/aws-lambda-nodejs";
-import { Runtime } from "@aws-cdk/aws-lambda";
-import { Construct } from "@aws-cdk/core";
+} from "aws-cdk-lib/aws-lambda-nodejs";
+import { Runtime } from "aws-cdk-lib/aws-lambda";
+import { Construct } from "constructs";
 
 /**
  * Skyhook Nodejs Function
