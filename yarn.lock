@@ -16,10 +16,10 @@
   dependencies:
     "@aws-cdk/cloudformation-diff" "2.18.0"
 
-"@aws-cdk/aws-appsync-alpha@^2.18.0-alpha.0":
-  version "2.18.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.18.0-alpha.0.tgz#39b6db31fab1fc30a04080bb34a24b8af4e924d0"
-  integrity sha512-vVbFb4uNeVzLdjTmp/r0FGb+U/v9595Coh8A0q5Q0P9X6bR+QpsMpqJx5ZCcBH04h5043PGjiGmCw9p42yaLRg==
+"@aws-cdk/aws-appsync-alpha@^2.25.0-alpha.0":
+  version "2.25.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.25.0-alpha.0.tgz#f94aeefc0cfbda3fa588b10e7ce767153e9d0a8d"
+  integrity sha512-Jq5S9qE8dSd0JvVhldRjFXgU4Kf3C7+tcSNU5xRvtwWFwrUgkv0I2JbwsaYZSvgxKj91Mz6T/bhiZPEpSse97A==
 
 "@aws-cdk/cfnspec@2.18.0":
   version "2.18.0"
