@@ -1,12 +1,12 @@
-import { NodejsFunctionProps } from "aws-cdk-lib/aws-lambda-nodejs";
-import { Construct } from "constructs";
+import { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Construct } from 'constructs';
 import {
   IGraphqlApi,
   LambdaDataSource,
   Resolver,
   ResolverProps,
-} from "@aws-cdk/aws-appsync-alpha";
-import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
+} from '@aws-cdk/aws-appsync-alpha';
+import SkyhookNodejsFunction from './SkyhookNodejsFunction';
 
 /**
  * Appsync Nodejs Resolver
@@ -15,7 +15,8 @@ import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
  *
  * The lambda is invoked as a
  * (direct lambda resolver)[https://docs.aws.amazon.com/appsync/latest/devguide/direct-lambda-reference.html] so we
- * recommend using the typescript type `AppSyncResolverHandler` from `types/aws-lambda`, within your handler code.
+ * recommend using the typescript type `AppSyncResolverHandler` from
+ * `types/aws-lambda`, within your handler code.
  */
 export default class AppsyncNodejsResolver extends SkyhookNodejsFunction {
   constructor(
@@ -66,9 +67,9 @@ interface LambdaMutationResolverProps {
    * });
    */
   api: IGraphqlApi;
-  entry: NodejsFunctionProps["entry"];
-  fieldName: ResolverProps["fieldName"];
-  handler?: NodejsFunctionProps["handler"];
-  typeName: ResolverProps["typeName"];
-  timeout?: NodejsFunctionProps["timeout"];
+  entry: NodejsFunctionProps['entry'];
+  fieldName: ResolverProps['fieldName'];
+  handler?: NodejsFunctionProps['handler'];
+  typeName: ResolverProps['typeName'];
+  timeout?: NodejsFunctionProps['timeout'];
 }

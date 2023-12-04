@@ -1,21 +1,23 @@
-import { Alarm } from "aws-cdk-lib/aws-cloudwatch";
+import { Alarm } from 'aws-cdk-lib/aws-cloudwatch';
 import {
   NodejsFunctionProps,
   BundlingOptions,
-} from "aws-cdk-lib/aws-lambda-nodejs";
-import { Rule, RuleProps } from "aws-cdk-lib/aws-events";
-import { Duration } from "aws-cdk-lib";
-import { Construct } from "constructs";
-import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
-import { Queue } from "aws-cdk-lib/aws-sqs";
-import SkyhookNodejsFunction from "./SkyhookNodejsFunction";
+} from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Rule, RuleProps } from 'aws-cdk-lib/aws-events';
+import { Duration } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { LambdaFunction } from 'aws-cdk-lib/aws-events-targets';
+import { Queue } from 'aws-cdk-lib/aws-sqs';
+import SkyhookNodejsFunction from './SkyhookNodejsFunction';
 
 /**
  * EventBridge Nodejs Listener
  *
- * Creates a SkyhookNodejsFunction {@link SkyhookNodejsFunction} & hooks in up to an Appsync Resolver.
+ * Creates a SkyhookNodejsFunction {@link SkyhookNodejsFunction} & hooks in up
+ * to an Appsync Resolver.
  *
- * We recommend using the typescript type `EventBridgeHandler` from `types/aws-lambda`, within your handler code.
+ * We recommend using the typescript type `EventBridgeHandler` from
+ * `types/aws-lambda`, within your handler code.
  */
 export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
   constructor(
@@ -66,10 +68,10 @@ export default class EventBridgeNodejsListener extends SkyhookNodejsFunction {
 interface EventBridgeNodejsListenerProps {
   /** Description for both the lambda and the EventBridge rule */
   description?: string;
-  entry: NodejsFunctionProps["entry"];
-  eventBus?: RuleProps["eventBus"];
-  eventPattern: RuleProps["eventPattern"];
-  handler?: NodejsFunctionProps["handler"];
+  entry: NodejsFunctionProps['entry'];
+  eventBus?: RuleProps['eventBus'];
+  eventPattern: RuleProps['eventPattern'];
+  handler?: NodejsFunctionProps['handler'];
   bundling?: BundlingOptions;
-  timeout?: NodejsFunctionProps["timeout"];
+  timeout?: NodejsFunctionProps['timeout'];
 }

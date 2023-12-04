@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`creates resources matching the snapshot 1`] = `
-Object {
-  "Resources": Object {
-    "testFunctionDataSource4C03DC5E": Object {
-      "Properties": Object {
+{
+  "Resources": {
+    "testFunctionDataSource4C03DC5E": {
+      "Properties": {
         "ApiId": "testID",
         "Description": "Data source for field booking on type Query.",
-        "LambdaConfig": Object {
-          "LambdaFunctionArn": Object {
-            "Fn::GetAtt": Array [
+        "LambdaConfig": {
+          "LambdaFunctionArn": {
+            "Fn::GetAtt": [
               "testFunctionLambda78269C17",
               "Arn",
             ],
           },
         },
         "Name": "testFunctionDataSource",
-        "ServiceRoleArn": Object {
-          "Fn::GetAtt": Array [
+        "ServiceRoleArn": {
+          "Fn::GetAtt": [
             "testFunctionDataSourceServiceRole2206622A",
             "Arn",
           ],
@@ -26,14 +26,14 @@ Object {
       },
       "Type": "AWS::AppSync::DataSource",
     },
-    "testFunctionDataSourceServiceRole2206622A": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionDataSourceServiceRole2206622A": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "appsync.amazonaws.com",
               },
             },
@@ -43,26 +43,26 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "testFunctionDataSourceServiceRoleDefaultPolicy585B338D": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionDataSourceServiceRoleDefaultPolicy585B338D": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "lambda:InvokeFunction",
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
                     "testFunctionLambda78269C17",
                     "Arn",
                   ],
                 },
-                Object {
-                  "Fn::Join": Array [
+                {
+                  "Fn::Join": [
                     "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
+                    [
+                      {
+                        "Fn::GetAtt": [
                           "testFunctionLambda78269C17",
                           "Arn",
                         ],
@@ -77,56 +77,56 @@ Object {
           "Version": "2012-10-17",
         },
         "PolicyName": "testFunctionDataSourceServiceRoleDefaultPolicy585B338D",
-        "Roles": Array [
-          Object {
+        "Roles": [
+          {
             "Ref": "testFunctionDataSourceServiceRole2206622A",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "testFunctionLambda78269C17": Object {
-      "DependsOn": Array [
+    "testFunctionLambda78269C17": {
+      "DependsOn": [
         "testFunctionLambdaServiceRoleF9778236",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "cdk-lambda-nodejs-mock-fake-bucket",
           "S3Key": "cdk-lambda-nodejs-mock-fake-lambda.ts",
         },
         "Description": "Appsync Resolver for field booking on type Query.",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "testFunctionLambdaServiceRoleF9778236",
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs20.x",
       },
       "Type": "AWS::Lambda::Function",
     },
-    "testFunctionLambdaServiceRoleF9778236": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionLambdaServiceRoleF9778236": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -137,11 +137,11 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "testFunctionResolver84C7D9B2": Object {
-      "DependsOn": Array [
+    "testFunctionResolver84C7D9B2": {
+      "DependsOn": [
         "testFunctionDataSource4C03DC5E",
       ],
-      "Properties": Object {
+      "Properties": {
         "ApiId": "testID",
         "DataSourceName": "testFunctionDataSource",
         "FieldName": "booking",
