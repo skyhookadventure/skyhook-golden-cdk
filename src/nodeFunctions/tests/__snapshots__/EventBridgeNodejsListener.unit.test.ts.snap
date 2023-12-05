@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`creates resources matching the snapshot 1`] = `
-Object {
-  "Resources": Object {
-    "testFunctionAlarm403B59EF": Object {
-      "Properties": Object {
+{
+  "Resources": {
+    "testFunctionAlarm403B59EF": {
+      "Properties": {
         "AlarmDescription": "Event listener testFunction has failed to process an event.",
         "ComparisonOperator": "GreaterThanOrEqualToThreshold",
-        "Dimensions": Array [
-          Object {
+        "Dimensions": [
+          {
             "Name": "QueueName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
+            "Value": {
+              "Fn::GetAtt": [
                 "testFunctionDeadLetterQueue126C440D",
                 "QueueName",
               ],
@@ -27,24 +27,24 @@ Object {
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
-    "testFunctionDeadLetterQueue126C440D": Object {
+    "testFunctionDeadLetterQueue126C440D": {
       "DeletionPolicy": "Delete",
-      "Properties": Object {
+      "Properties": {
         "MessageRetentionPeriod": 1209600,
       },
       "Type": "AWS::SQS::Queue",
       "UpdateReplacePolicy": "Delete",
     },
-    "testFunctionDeadLetterQueuePolicyB029CBEC": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionDeadLetterQueuePolicyB029CBEC": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
               "Action": "sqs:SendMessage",
-              "Condition": Object {
-                "ArnEquals": Object {
-                  "aws:SourceArn": Object {
-                    "Fn::GetAtt": Array [
+              "Condition": {
+                "ArnEquals": {
+                  "aws:SourceArn": {
+                    "Fn::GetAtt": [
                       "testFunctionRule4EC511D3",
                       "Arn",
                     ],
@@ -52,11 +52,11 @@ Object {
                 },
               },
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "events.amazonaws.com",
               },
-              "Resource": Object {
-                "Fn::GetAtt": Array [
+              "Resource": {
+                "Fn::GetAtt": [
                   "testFunctionDeadLetterQueue126C440D",
                   "Arn",
                 ],
@@ -66,55 +66,55 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "Queues": Array [
-          Object {
+        "Queues": [
+          {
             "Ref": "testFunctionDeadLetterQueue126C440D",
           },
         ],
       },
       "Type": "AWS::SQS::QueuePolicy",
     },
-    "testFunctionLambda78269C17": Object {
-      "DependsOn": Array [
+    "testFunctionLambda78269C17": {
+      "DependsOn": [
         "testFunctionLambdaServiceRoleF9778236",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "cdk-lambda-nodejs-mock-fake-bucket",
           "S3Key": "cdk-lambda-nodejs-mock-fake-lambda.ts",
         },
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "testFunctionLambdaServiceRoleF9778236",
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs20.x",
       },
       "Type": "AWS::Lambda::Function",
     },
-    "testFunctionLambdaServiceRoleF9778236": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionLambdaServiceRoleF9778236": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -125,25 +125,25 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "testFunctionRule4EC511D3": Object {
-      "Properties": Object {
-        "EventPattern": Object {
-          "detail-type": Array [
+    "testFunctionRule4EC511D3": {
+      "Properties": {
+        "EventPattern": {
+          "detail-type": [
             "EventDetailTypeA",
           ],
         },
         "State": "ENABLED",
-        "Targets": Array [
-          Object {
-            "Arn": Object {
-              "Fn::GetAtt": Array [
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
                 "testFunctionLambda78269C17",
                 "Arn",
               ],
             },
-            "DeadLetterConfig": Object {
-              "Arn": Object {
-                "Fn::GetAtt": Array [
+            "DeadLetterConfig": {
+              "Arn": {
+                "Fn::GetAtt": [
                   "testFunctionDeadLetterQueue126C440D",
                   "Arn",
                 ],
@@ -155,18 +155,18 @@ Object {
       },
       "Type": "AWS::Events::Rule",
     },
-    "testFunctionRuleAllowEventRuletestFunctionLambdaD644A83C": Object {
-      "Properties": Object {
+    "testFunctionRuleAllowEventRuletestFunctionLambdaD644A83C": {
+      "Properties": {
         "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
+        "FunctionName": {
+          "Fn::GetAtt": [
             "testFunctionLambda78269C17",
             "Arn",
           ],
         },
         "Principal": "events.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
+        "SourceArn": {
+          "Fn::GetAtt": [
             "testFunctionRule4EC511D3",
             "Arn",
           ],

@@ -1,7 +1,8 @@
 /**
  * # Skyhook Module Eslint
  *
- * This is the standard Skyhook module eslint config. __No changes should be made here__ unless absolutely necessary -
+ * This is the standard Skyhook module eslint config. __No changes should be
+ * made here__ unless absolutely necessary -
  * typically if you find a good change it should be used everywhere.
  */
 module.exports = {
@@ -11,35 +12,38 @@ module.exports = {
   },
   extends: [
     // Airbnb Typescript eslint from https://www.npmjs.com/package/eslint-config-airbnb-typescript
-    "airbnb-base",
-    "airbnb-typescript/base",
+    'airbnb-base',
+    'airbnb-typescript/base',
     // Standard eslint & typescript-eslint recommended
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
     // Prettier added using default settings from https://github.com/prettier/eslint-plugin-prettier
-    "plugin:prettier/recommended",
+    // "plugin:prettier/recommended",
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ["./tsconfig.json"],
+    project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
     ecmaVersion: 8,
-    sourceType: "module",
+    sourceType: 'module'
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   root: true,
-  // As well as some Skyhook-specific preferences, the most intensive rules are disabled for performance reasons. This
-  // reduces the linting time dramatically and thus improves the developer experience.
+  // As well as some Skyhook-specific preferences, the most intensive rules are
+  // disabled for performance reasons. This reduces the linting time
+  // dramatically and thus improves the developer experience.
   rules: {
-    "@typescript-eslint/comma-dangle": "off", // Conflicts with prettier
-    "@typescript-eslint/no-implied-eval": "off", // Disabled for performance
-    "import/no-cycle": "off", // Disabled for performance
-    "import/no-extraneous-dependencies": "off", // Disabled for performance
-    // Console logging is only an issue on frontend (not backend) code due to imperfect browser support. For the backend
+    '@typescript-eslint/comma-dangle': 'off', // Conflicts with prettier
+    '@typescript-eslint/no-implied-eval': 'off', // Disabled for performance
+    'import/no-cycle': 'off', // Disabled for performance
+    'import/no-extraneous-dependencies': 'off', // Disabled for performance
+    // Console logging is only an issue on frontend (not backend) code due to
+    // imperfect browser  support. For the backend
     // it's actually recommended as a quick way of getting logs from lambdas to Cloudwatch.
-    "no-console": "off",
-    // Using new side effects is a key design pattern of aws-cdk and used heavily for our infrastructure
-    "no-new": "off",
-    radix: "off", // Disabled for performance
+    'no-console': 'off',
+    // Using new side effects is a key design pattern of aws-cdk and used
+    // heavily for our infrastructure
+    'no-new': 'off',
+    radix: 'off', // Disabled for performance
   },
 };

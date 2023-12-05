@@ -1,50 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`creates resources matching the snapshot 1`] = `
-Object {
-  "Resources": Object {
-    "testFunction483F4CBE": Object {
-      "DependsOn": Array [
+{
+  "Resources": {
+    "testFunction483F4CBE": {
+      "DependsOn": [
         "testFunctionServiceRoleFEC29B6F",
       ],
-      "Properties": Object {
-        "Code": Object {
+      "Properties": {
+        "Code": {
           "S3Bucket": "cdk-lambda-nodejs-mock-fake-bucket",
           "S3Key": "cdk-lambda-nodejs-mock-fake-lambda.ts",
         },
         "Handler": "index.handler",
         "MemorySize": 1024,
-        "Role": Object {
-          "Fn::GetAtt": Array [
+        "Role": {
+          "Fn::GetAtt": [
             "testFunctionServiceRoleFEC29B6F",
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs20.x",
       },
       "Type": "AWS::Lambda::Function",
     },
-    "testFunctionServiceRoleFEC29B6F": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
+    "testFunctionServiceRoleFEC29B6F": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Principal": Object {
+              "Principal": {
                 "Service": "lambda.amazonaws.com",
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
               "",
-              Array [
+              [
                 "arn:",
-                Object {
+                {
                   "Ref": "AWS::Partition",
                 },
                 ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
