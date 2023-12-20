@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "^2.68.0",
-    "@aws-cdk/aws-appsync-alpha": "^2.59.0-alpha.0",
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
@@ -54,7 +53,6 @@
   },
   "peerDependencies": {
     "@aws-cdk/assert": "^2",
-    "@aws-cdk/aws-appsync-alpha": "^2.25.0-alpha.0",
     "aws-cdk-lib": "^2.0.0",
     "constructs": "^10.0.0"
   },

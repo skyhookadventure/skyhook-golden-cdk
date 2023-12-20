@@ -1,7 +1,7 @@
 import '@aws-cdk/assert/jest';
 import { Stack } from 'aws-cdk-lib/core';
 import { SynthUtils } from '@aws-cdk/assert';
-import { GraphqlApi } from '@aws-cdk/aws-appsync-alpha';
+import { GraphqlApi } from 'aws-cdk-lib/aws-appsync';
 import { AppsyncNodejsResolver } from '../..';
 
 const testStack = new Stack();
