@@ -1,8 +1,6 @@
+import { IGraphqlApi, LambdaDataSource, Resolver, ResolverProps } from 'aws-cdk-lib/aws-appsync';
 import { NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
-import {
-  IGraphqlApi, LambdaDataSource, Resolver, ResolverProps
-} from 'aws-cdk-lib/aws-appsync';
 import SkyhookNodejsFunction from './SkyhookNodejsFunction';
 
 /**
@@ -19,9 +17,7 @@ export default class AppsyncNodejsResolver extends SkyhookNodejsFunction {
   constructor(
     scope: Construct,
     id: string,
-    {
-      api, typeName, fieldName, entry, handler, timeout
-    }: LambdaMutationResolverProps,
+    { api, typeName, fieldName, entry, handler, timeout, ...resolverProps }: LambdaMutationResolverProps,
   ) {
     super(scope, `${id}Lambda`, {
       description: `Appsync Resolver for field ${fieldName} on type ${typeName}.`,
@@ -41,11 +37,12 @@ export default class AppsyncNodejsResolver extends SkyhookNodejsFunction {
       dataSource,
       fieldName,
       typeName,
+      ...resolverProps,
     });
   }
 }
 
-interface LambdaMutationResolverProps {
+type LambdaMutationResolverProps = {
   /**
    * API
    *
@@ -64,4 +61,4 @@ interface LambdaMutationResolverProps {
   handler?: NodejsFunctionProps['handler'];
   typeName: ResolverProps['typeName'];
   timeout?: NodejsFunctionProps['timeout'];
-}
+} & Omit<ResolverProps, 'api' | 'dataSource' | 'fieldName' | 'typeName'>;
