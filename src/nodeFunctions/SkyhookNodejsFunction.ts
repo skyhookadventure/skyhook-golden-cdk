@@ -1,5 +1,5 @@
-import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 
 /**
@@ -23,7 +23,7 @@ export default class SkyhookNodejsFunction extends NodejsFunction {
       // We have found this to typically represent a good balance of performance vs price.
       memorySize: 1024,
       bundling: { minify: true, ...bundling },
-      runtime: Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_LATEST,
       // Given props
       ...propsWithoutBundling,
     });
